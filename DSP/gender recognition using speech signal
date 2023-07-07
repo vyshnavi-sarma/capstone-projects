@@ -1,0 +1,13 @@
+ % Load audio file
+[audioIn,fs] = audioread("male r.unknown");
+% Calculate fundamental frequency for each frame
+f0 = pitch(audioIn,fs);
+% Calculate mean fundamental frequency across all frames
+b=mean(f0);
+disp(b);
+% Print gender based on mean pitch
+if b > 165
+    fprintf("Female Voice");
+else
+    fprintf("Male Voice");
+end
